@@ -1,0 +1,258 @@
+<html>
+	<head>
+		<title>Epidemic Simulation</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Calibri:400,700,400italic,700italic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+		<link rel="icon" href="../square.png">
+
+    <link rel="stylesheet" href="../css/styles.css"></link>
+    <link rel="stylesheet" href="../css/slider.css"></link>
+    <link rel="stylesheet" href="../css/div.css"></link>
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script type="application/ld+json">
+			{
+			  "@type": "Simulation",
+			  "name": "Epidemic Simulation",
+			  "author": "Prajwal DSouza",
+			  "description": "An interactive based on a 3Blue1Brown video."
+			  }
+		</script>
+
+		  <meta charset="UTF-8">
+		  <meta name="description" content="An interactive based on a 3Blue1Brown video.">
+		  <meta name="keywords" content="epidemic, coronavirus, simulation, SIR model, sir model, prajwalsouza, Prajwal DSouza, Grant Sanderson, simulating an epidemic">
+		  <meta name="author" content="Prajwal DSouza">
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body id="html_body">
+
+		<div id="containAll">
+			
+			<div id="mainVSpacer1"></div>
+			
+			<div id="MainBlock1">
+				<div id="mainB1HSpacer1"></div>
+			</div>
+
+			<div id="mainVSpacer2"></div>
+
+			<div id="MainBlock2">
+				<div id="mainB2HSpacer1"></div>
+
+				<div id="titleH">
+					<div id="title" style='margin:0px;width:100%; height: 100%; position: relative; z-index: 1;display: inline-block; font-size: 2.4vmax; color: hsla(190, 0%, 0%, 1);font-family: Raleway;'>
+						<table width="100%" height='100%' style="border: 0px solid black; border-collapse: collapse; table-layout: fixed;">
+							<tr>
+								<td colspan="8" id='maintitle' style="text-align: center; vertical-align: bottom; font-size: 2.4vmax; color: white;">
+									<font style="font-weight: bold;">Epidemic Simulation </font><br/><font style="font-family: Source Sans Pro; font-size: 1.4vmax; vertical-align: bottom;">An interactive inspired by 3Blue1Brown's <a href="https://www.youtube.com/watch?v=gxAaO2rsdIs" style="text-decoration: none; cursor: pointer;" target="_blank"><font style="color: hsla(197, 100%, 50%, 1);">"Simulating an Epidemic" video</font></a>.<br/><font style="font-size: 1.2vmax">For other interactives, visit <a href="https://prajwalsouza.github.io/" style="text-decoration: none; cursor: pointer;" target="_blank"><font style="color: hsla(280, 100%, 70%, 1);">prajwalsouza.github.io</font></a></font></font>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div id="mainB2HSpacer2"></div>
+
+				<div id="caseTypeNameH" style='margin:0px;width:100%; height:2%; position: relative; z-index: 1;display: inline-block; font-size: 1.3vmax; text-align: left; color: hsla(190, 0%, 70%, 1); font-family: Source Sans Pro;'>
+					<span id="caseTypeName">Simple Case</span>
+				</div>
+				<br/>
+				<div id="upperLayer" style='margin:0px;width:100%; height: 35%;overflow: hidden;position: absolute; z-index: 200; display: inline-block; background: none; box-shadow: inset 0px 0px 20px 5px hsla(32, 0%,0%, 1); border: 0px solid black; pointer-events: none;'>
+					 <!-- <span id="R_0" style="font-size: 1vmax; color: white; font-family: Source Sans Pro;">R : 0.1</span>
+					 <span id="R_0-Info" style="font-size: 0.7vmax; color: grey; font-family: Source Sans Pro; float: right; top: 80%;">Reproductive Number Calculation here is a little different from the 3B1B video. <br/>Here, its Average(Number of individuals infected by one infected individual)</span> -->
+				</div>
+				<div id="simpleCaseGraphH" style="width: 100%; height: 35%; overflow: hidden;position: absolute; z-index: 1;display: inline-block;"></div>
+				<div id="centralLocationCaseGraphH" style="width: 100%; height: 35%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1;display: inline-block;"></div>
+				<div id="communitiesCaseGraphH" style="width: 100%; height: 35%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1;display: inline-block;"></div>
+				<div id="simpleCaseGraph&QH" style="width: 100%; height: 35%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1; display: inline-block;"></div>
+				<div id="centralLocationQuarantineCaseGraphH" style="width: 100%; height: 35%; visibility: hidden; overflow: hidden;position: absolute; z-index: 1; display: inline-block;"></div>
+				<div id="communitiesQuarantineCaseGraphH" style="width: 100%; height: 35%; visibility: hidden; overflow: hidden;position: relative; z-index: 1; display: inline-block;"></div>
+				<div id="play-Info-QuarantineH" style='margin:0px;width:100%; height:3.5%; position: relative; z-index: 1;display: inline-block; color: hsla(190, 0%, 70%, 1); font-family: Source Sans Pro;'>
+					<div id="playButtonH" style="width: 15%; height: 100%; position: relative; z-index: 1;display: inline-block; overflow: hidden;">
+						<input id='playbutton' onclick="playpauseSim(event)" value='PAUSE' list="brow" style="border: 0px solid hsla(0, 0%, 70%, 1);  border-radius: 10px; width: 100%; height: 100%; text-align: center; font-family: Source Sans Pro; font-weight: bold; font-size: 1.5vmax; background: hsla(198,100%,50%,1); color: hsla(0, 0%, 100%, 1); cursor: pointer; user-select: none; pointer-events: auto; overflow: hidden; outline: none;" readonly></input>
+					</div>
+					<div id="play-Info-QuarantineHSpacer1" style='margin:0px;width:2%; height:100%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '></div>
+					<div id="resetButtonH" style="width: 15%; height: 100%; position: relative; z-index: 1;display: inline-block; overflow: hidden;">
+						<input id='resetbutton' onclick="resetSim(event)" value='RESET' list="brow" style="border: 0px solid hsla(0, 0%, 70%, 1);  border-radius: 10px; width: 100%; height: 100%; text-align: center; font-family: Source Sans Pro; font-weight: bold; font-size: 1.5vmax; background: hsla(198,0%,50%,1); color: hsla(0, 0%, 100%, 1); cursor: pointer; user-select: none; pointer-events: auto; overflow: hidden; outline: none;" readonly></input>
+					</div>
+					<div id="play-Info-QuarantineHSpacer2" style='margin:0px;width:4%; height:100%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '></div>
+					<div id="infoH" style="width: 32%; height: 100%; position: relative; z-index: 1;display: inline-block; color: white; font-size: 0.9vmax; font-family: Source Sans Pro; overflow: auto;"><div style="display: table-cell; vertical-align: middle; text-align:left; height: 100%; width: 100%;">Please watch the <a href="https://www.youtube.com/watch?v=gxAaO2rsdIs" style="text-decoration: none; cursor: pointer; color: hsla(197, 100%, 70%, 1);" target="_blank">3b1b video</a> to understand what is presented here. <br/> Parameters values here differ from the video and might give different results. <br/> Please zoom in/out of simulation/graph if it doesn't fit into your screen.</div></div>
+					<div id="play-Info-QuarantineHSpacer2" style='margin:0px;width:2%; height:100%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '></div>
+					<div id="quarantineH" style="width: 30%; height: 100%; position: relative; z-index: 1;display: inline-block; overflow: hidden; text-align: center;">
+						<input onchange="handleQClick(event)" type="checkbox" id="quarantinecheck" name="quarantinecheck" value="quarantinecheck"  ><label id="quarantinecheckLabel" for="quarantinecheck" style="color: var(--themeinfected); font-size: 1.5vmax; font-weight: bold;">QUARANTINE</label>
+					</div>
+				</div>
+				<div id="mainB2HSpacer3" style='margin:0px;width:100%; height:2%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+				</div>
+				<div id="caseTypeChooseH" style='margin:0px;width:100%; height:4%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+					<div id="simpleCaseoptionH" style='margin:0px;width:23%; height: 100%; display: inline-block; overflow: hidden;cursor: pointer;'>
+						<input onclick="handleConfigChange(event)" id='simpleCaseoption' value='SIMPLE' list="brow" style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5vmax; letter-spacing: 0.8px; color: hsla(0, 100%, 0%, 1); cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle; border-top-left-radius: 20px; border-bottom-left-radius: 20px; background: hsla(40,100%,50%,1); border: 0.5px solid hsla(40,100%,50%,1);" readonly></input>
+					</div>
+					<div id="centralLocationoptionH" style='margin:0px;width:42%; height: 100%; display: inline-block; overflow: hidden;cursor: pointer;'>
+						<input onclick="handleConfigChange(event)" id='centralLocationoption' value='CENTRAL LOCATION' list="brow" style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5vmax; letter-spacing: 0.8px; color: grey; cursor: pointer; user-select: none; border-color: hsla(0, 0%, 70%, 1); outline: none; vertical-align: middle;  background: hsla(280,100%,70%,0); border: 0.5px solid hsla(0, 0%, 60%, 1);" readonly></input>
+					</div>
+					<div id="communitiesoptionH" style='margin:0px;width:33%; height: 100%; display: inline-block; overflow: hidden;cursor: pointer;'>
+						<input onclick="handleConfigChange(event)" id='communitiesoption' value='COMMUNITIES' list="brow" style="width: 100%; height: 100%;  font-family: Source Sans Pro; font-weight: bold; text-align: center;font-size: 1.5vmax; letter-spacing: 0.8px; color: grey; cursor: pointer; user-select: none; outline: none; vertical-align: middle; border-top-right-radius: 20px; border-bottom-right-radius: 20px; background: hsla(280,100%,50%,0); border: 0.5px solid hsla(0, 0%, 70%, 1);" readonly></input>
+					</div>
+				</div>
+				<div id="mainB2HSpacer4" style='margin:0px;width:100%; height:1%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+				</div>
+				<div id="plotGraphH" style="width: 100%; height: 20%; overflow: hidden;position: relative; z-index: 1; display: inline-block;"></div>
+				<div id="mainB2HSpacer5" style='margin:0px;width:100%; height:2%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+				</div>
+				<div id="parametersH" style='margin:0px;width:100%; height:19%;overflow: hidden;position: relative; z-index: 1;display: inline-block;'>
+					<div id="gradfillParameters" style='margin:0px;width:100%; height: 100%; display: inline-block; position: absolute; pointer-events: none; background: linear-gradient(to bottom,hsla(0, 0%, 0%, 0), hsla(0, 100%, 100%, 0) 15%, hsla(0, 100%, 0%, 1) 16%, hsla(0, 100%, 100%, 0) 22%, hsla(0, 0%, 0%, 0) 95%,hsla(0, 100%, 0%, 1) 100%,hsla(0, 100%, 100%, 0) 100%,hsla(0, 100%, 100%, 0)); z-index: 2;'></div>
+					<div id="parametersTitleText" style='margin:0px;width:100%; height:17%;overflow: hidden;position: relative; z-index: 1;display: inline-block; font-family: Source Sans Pro; font-size: 1.8vmax; color: hsla(190, 0%, 70%, 1);'>PARAMETERS<font id="additionalPText" style="color: white; font-size: 1.1vmax; float: right;"> Some parameters are specific to certain cases.</font></div>
+					<div id="parametersListH" style='margin:0px;width:100%; height:83%;overflow-y: auto;position: relative; z-index: 1;display: inline-block; font-family: Source Sans Pro; font-size: 1.7vmax; color: white;'>
+						<div id="parameterSpacer1" style='margin:0px;width:100%; height:2%;overflow: hidden;position: relative; z-index: 1;display: inline-block'></div>
+					</div>
+				</div>
+				<div id="mainB2HSpacer6" style='margin:0px;width:100%; height:0%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+				</div>
+			</div>
+			<div id="mainVSpacer3" style='margin:0px;width:4%; height: 100%;overflow: hidden;position: relative; z-index: 1;display: inline-block; '>
+			</div>
+			
+			<!-- <div id="testGH" style="width: 100%; height: 100%; overflow: hidden;position: relative; z-index: 1;display: inline-block;"></div> -->
+		</div>
+		<script src="../js/display/infoIsPlay.js"></script>
+		<script src="../js/display/setDarkMode.js"></script>
+		<script src="../js/display/setFont.js"></script>
+		<script src="../js/display/setUpPlotGraph.js"></script>
+		<script src="../js/display/setUpCentralLocationGraph.js"></script>
+		<script src="../js/display/setUpCentralLocationQuarantineCaseGraph.js"></script>
+		<script src="../js/display/setUpCommunitiesCaseGraph.js"></script>
+		<script src="../js/display/setUpCommunitiesQuarantineCaseGraph.js"></script>
+		<script src="../js/display/setUpSimpleCaseGraph.js"></script>
+		<script src="../js/display/setUpSimpleQuarantineCaseGraph.js"></script>
+		<script src="../js/display/playAnimationLoop.js"></script>
+		<script src="../js/display/playCalculationLoop.js"></script>
+		<script src="../js/display/setAnimationDetails.js"></script>
+		<script src="../js/display/resetSim.js"></script>
+		<script src="../js/display/resetSimHard.js"></script>
+		<script src="../js/display/playpauseSim.js"></script>
+
+		<script src="../js/components/divSlider.js"></script>
+		<script src="../js/components/basicSlider.js"></script>
+
+		<script src="../js/conversion/graphToScaled.js"></script>
+		<script src="../js/conversion/graphToSvg.js"></script>
+		<script src="../js/conversion/svgToGraph.js"></script>
+		<script src="../js/conversion/clientToGraph.js"></script>
+
+
+		<script src="../js/add/addGraph.js"></script>
+		<script src="../js/add/addLine.js"></script>
+		<script src="../js/add/addSlider.js"></script>
+		<script src="../js/add/addSliderToDiv.js"></script>
+		<script src="../js/add/addPath.js"></script>
+		<script src="../js/add/addEllipse.js"></script>
+		<script src="../js/add/addText.js"></script>
+		<script src="../js/add/addRectangle.js"></script>
+		<script src="../js/add/addPoint.js"></script>
+
+		<script src="../js/update/updateZoom.js"></script>
+		<script src="../js/update/updatePath.js"></script>
+		<script src="../js/update/updatePathPoints.js"></script>
+		<script src="../js/update/updateLine.js"></script>
+		<script src="../js/update/updateCircle.js"></script>
+		<script src="../js/update/updateEllipse.js"></script>
+		<script src="../js/update/updateText.js"></script>
+		<script src="../js/update/updateRectangle.js"></script>
+		<script src="../js/update/updatePoint.js"></script>
+		<script src="../js/update/updatePointXY.js"></script>
+		<script src="../js/update/updatePlotGraph.js"></script>
+
+		<script src="../js/remove/removeCircle.js"></script>
+		<script src="../js/remove/removeGraph.js"></script>
+		<script src="../js/remove/removeLine.js"></script>
+		<script src="../js/remove/removePath.js"></script>
+		<script src="../js/remove/removePoint.js"></script>
+		<script src="../js/remove/removeText.js"></script>
+
+		<script src="../js/boundary/addParticlesToBoundary.js"></script>
+		<script src="../js/boundary/boundaryRepulsiveForce.js"></script>
+		<script src="../js/boundary/drawBoundary.js"></script>
+		<script src="../js/boundary/removeParticlesFromBoundary.js"></script>
+
+		<script src="../js/make/makeArc.js"></script>
+		<script src="../js/make/makeArcS.js"></script>
+
+		<script src="../js/delete/deleteSegments.js"></script>
+		
+		<script src="../js/point/pointDrag.js"></script>
+		<script src="../js/point/pointMoveEvent.js"></script>
+		<script src="../js/point/pointUpEvent.js"></script>
+
+		<script src="../js/graph/graphDragMoveEvent.js"></script>
+		<script src="../js/graph/graphDragUpEvent.js"></script>
+		<script src="../js/graph/graphPinchEndEvent.js"></script>
+		<script src="../js/graph/graphPinchMoveEvent.js"></script>
+		<script src="../js/graph/graphTouchDisable.js"></script>
+
+    
+		<script src="../js/handle/graphDragHandle.js"></script>
+		<script src="../js/handle/wheelHandle.js"></script>
+		<script src="../js/handle/handleLayout1.js"></script>
+		<script src="../js/handle/handleSDObedience.js"></script>
+		<script src="../js/handle/handleAnimationPlaying.js"></script>
+		<script src="../js/handle/handleCalculatingPlaying.js"></script>
+		<script src="../js/handle/handleLayout2.js"></script>
+		<script src="../js/handle/handleQClick.js"></script>
+		<script src="../js/handle/handleConfigChange.js"></script>
+		
+		<script src="../js/interaction/interactions.js"></script>
+		<script src="../js/interaction/moveToBoundary.js"></script>
+		<script src="../js/interaction/prepInteractionData.js"></script>
+
+		<script src="../js/vicinity/createVicinityDB.js"></script>
+		<script src="../js/vicinity/getParticleVicinityN.js"></script>
+
+		<script src="../js/parameter/addVariousParameters.js"></script>
+		<script src="../js/parameter/changeParameter.js"></script>
+		<script src="../js/parameter/changeParameterWithoutReload.js"></script>
+		<script src="../js/parameter/parameterEvent.js"></script>
+		<script src="../js/parameter/parameterHScroll.js"></script>
+
+		<script src="../js/particles/animateParticles.js"></script>
+		<script src="../js/particles/moveParticles.js"></script>
+
+		<script src="../js/utils/isInt.js"></script>
+		<script src="../js/utils/isFloat.js"></script>
+		<script src="../js/utils/linearValue.js"></script>
+		<script src="../js/utils/randomChoice.js"></script>
+		<script src="../js/utils/randomWeightedChoice.js"></script>
+		<script src="../js/utils/distanceBTWgraphToSvg.js"></script>
+		<script src="../js/utils/shuffle.js"></script>
+		<script src="../js/utils/addVec.js"></script>
+		<script src="../js/utils/distF.js"></script>
+		<script src="../js/utils/mod.js"></script>
+		<script src="../js/utils/directionvec.js"></script>
+		<script src="../js/utils/gridTickValues.js"></script>
+		<script src="../js/utils/getGraphCursorLocation.js"></script>
+		<script src="../js/utils/getSurrcounding.js"></script>
+		<script src="../js/utils/getSurroundingRepulsives.js"></script>
+
+
+
+		<script src="../js/setup.js"></script>
+
+
+	</body>
+<html>
+

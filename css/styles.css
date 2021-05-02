@@ -1,0 +1,14 @@
+:root {
+  --themeblue: hsla(196, 100%, 50%, 1);
+  --themeviolet: hsla(280, 100%, 50%, 1);
+  --themeorange: hsla(32, 100%, 50%, 1);
+  --boundaryorange: hsla(32, 100%, 50%, 0.6);
+  --themegrey: hsla(32, 0%, 70%, 0.6);
+
+  --themeinfected: hsla(0, 59%, 50%, 1);
+}
+
+.inputButDiv:focus {
+  outline: none !important;
+  border: 0px solid black;
+}
