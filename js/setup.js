@@ -168,8 +168,7 @@ parameterData[8] = {
 };
 parameterData[9] = {
   name: 'probabilityOfNoSymptoms',
-  div:
-    "@@@% of the infected, don't show symptoms, hence, won't be quarantined.",
+  div: "@@@% of the infected, don't show symptoms, hence, won't be quarantined.",
   initValue: 2,
   max: 100,
   min: 0,
@@ -181,8 +180,7 @@ parameterData[9] = {
 };
 parameterData[10] = {
   name: 'probabilityCLVisit',
-  div:
-    'There is @@@% chance that an individual visits the central location in any given hour.',
+  div: 'There is @@@% chance that an individual visits the central location in any given hour.',
   initValue: 0.4,
   max: 2,
   min: 0,
@@ -194,8 +192,7 @@ parameterData[10] = {
 };
 parameterData[11] = {
   name: 'travelProbability',
-  div:
-    'There is a @@@% chance of travel by an individual on a given day to another community',
+  div: 'There is a @@@% chance of travel by an individual on a given day to another community',
   initValue: 2,
   max: 10,
   min: 0,
@@ -315,6 +312,12 @@ allParticleVicinityDB = {};
 vicinityDelta = 0.1;
 
 particleCounts = {};
+particleDataArr = {
+  infected: [],
+  susceptible: [],
+  removed: [],
+};
+
 particleCountTimeLine = {};
 
 particleInfectionCount = {};

@@ -5,6 +5,16 @@ function updatePlotGraph() {
     particleCounts[graphForParticle]['susceptible'] +
     particleCounts[graphForParticle]['removed'];
 
+  // ========= log record ==========
+  particleDataArr.infected.push(particleCounts[graphForParticle]['infected']);
+  particleDataArr.susceptible.push(
+    particleCounts[graphForParticle]['susceptible']
+  );
+  particleDataArr.removed.push(particleCounts[graphForParticle]['removed']);
+
+  console.log(particleDataArr);
+  // ===============================
+
   removedV = (particleCounts[graphForParticle]['removed'] * 100) / totalP;
   infectedV = (particleCounts[graphForParticle]['infected'] * 100) / totalP;
   susceptibleV =
