@@ -44,6 +44,9 @@ function setUpSimpleCaseGraph() {
   boundaryData['simpleCaseGraphB']['fractionInfectedInitially'] =
     simulationParameters.fractionInfectedInitially;
 
+  boundaryData['simpleCaseGraphB']['fractionRemovedInitially'] =
+    simulationParameters.fractionRemovedInitially;
+
   particleCounts['simpleCaseGraphG'] = {};
   particleCounts['simpleCaseGraphG']['infected'] = 0;
   particleCounts['simpleCaseGraphG']['susceptible'] = 0;

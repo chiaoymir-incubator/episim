@@ -2,6 +2,7 @@ function addParticlesToBoundary(graphN, boundaryN, particleN) {
   boundaryData[boundaryN]['particleNumber'] = particleN;
   totalparticles = boundaryData[boundaryN]['particleNumber'];
   initiallyInfectedN = boundaryData[boundaryN]['fractionInfectedInitially'];
+  initiallyRemovedN = boundaryData[boundaryN]['fractionRemovedInitially'];
 
   bdrange = boundaryData[boundaryN]['range'];
   bdexclusionWX = (bdrange[1] - bdrange[0]) / 20;
@@ -35,10 +36,16 @@ function addParticlesToBoundary(graphN, boundaryN, particleN) {
       bdexclusionSX + Math.random() * bdexclusionRX;
     particleData[boundaryN][particleID].y =
       bdexclusionSY + Math.random() * bdexclusionRY;
-    if (particleIndex < parseInt(totalparticles * initiallyInfectedN)) {
+
+    infectedBound = parseInt(totalparticles * initiallyInfectedN);
+    removedBound = parseInt(totalparticles * initiallyRemovedN) + infectedBound;
+    if (particleIndex < infectedBound) {
       particleData[boundaryN][particleID].state = 'infected';
       particleCounts[graphN]['infected'] =
         particleCounts[graphN]['infected'] + 1;
+    } else if (infectedBound <= particleIndex && particleIndex < removedBound) {
+      particleData[boundaryN][particleID].state = 'removed';
+      particleCounts[graphN]['removed'] = particleCounts[graphN]['removed'] + 1;
     } else {
       particleData[boundaryN][particleID].state = 'susceptible';
       particleCounts[graphN]['susceptible'] =

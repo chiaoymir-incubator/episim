@@ -5,16 +5,15 @@ function parameterEvent(event) {
     parData.transform.replace(/#paraValue#/g, event.target.value)
   );
   pName = parameterData[parameterNumber].name + 'div';
-  document.getElementById(
-    'parameter' + pName + 'Text'
-  ).innerHTML = parData.div.replace(
-    /@@@/g,
-    '<font style="font-weight: bold; color:hsla(' +
-      parData.color +
-      ', 1);">' +
-      event.target.value +
-      '</font>'
-  );
+  document.getElementById('parameter' + pName + 'Text').innerHTML =
+    parData.div.replace(
+      /@@@/g,
+      '<font style="font-weight: bold; color:hsla(' +
+        parData.color +
+        ', 1);">' +
+        event.target.value +
+        '</font>'
+    );
 
   eval(parData.runFAtEnd);
 
@@ -26,9 +25,9 @@ function parameterEvent(event) {
       removeParticlesFromBoundary('simpleCaseGraphG', 'simpleCaseGraphB');
       removeGraph('simpleCaseGraphG');
       removeGraph('plotG');
-      dayCount = 0;
-      timecount = 0;
-      loopcount = 0;
+      // dayCount = 0;
+      // timecount = 0;
+      // loopcount = 0;
       setUpSimpleCaseGraph();
       setUpPlotGraph();
       handleSDObedience();

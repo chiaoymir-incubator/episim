@@ -82,6 +82,7 @@ parameterData[2] = {
   color: '10, 100%, 63%',
   transform: 'parseFloat(#paraValue#)/100',
   requiresReset: true,
+  // requiresReset: false,
   runFAtEnd: '',
 };
 parameterData[3] = {
@@ -281,6 +282,26 @@ parameterData[17] = {
   transform: 'parseInt(#paraValue#)',
   requiresReset: true,
   runFAtEnd: 'setAnimationDetails()',
+};
+
+divAdjust =
+  '@@@% population/community removed initially<br/><font style="color:grey; font-size: 1.2vmax;"> (In community case, @@@% of the community is removed initially, not the population.)</font>';
+if (dmode == 'landscape') {
+  divAdjust =
+    '@@@% population/community removed initially<br/><font style="color:grey; font-size: 0.8vmax;">(In community case, @@@% of the community is removed initially, not the population.)</font>';
+}
+
+parameterData[18] = {
+  name: 'fractionRemovedInitially',
+  div: divAdjust,
+  initValue: 10,
+  max: 100,
+  min: 0,
+  step: 0.1,
+  color: '10, 100%, 63%',
+  transform: 'parseFloat(#paraValue#)/100',
+  requiresReset: true,
+  runFAtEnd: '',
 };
 
 parameterSliderRMap = {};
