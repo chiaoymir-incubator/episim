@@ -294,7 +294,7 @@ if (dmode == 'landscape') {
 parameterData[18] = {
   name: 'fractionRemovedInitially',
   div: divAdjust,
-  initValue: 10,
+  initValue: 0,
   max: 100,
   min: 0,
   step: 0.1,
@@ -460,3 +460,21 @@ graphToQMap['communitiesCase'] = [
 ];
 
 quarantineOn = false;
+
+// download object
+function downloadObjectAsJson() {
+  var exportObj = particleDataArr;
+  var exportName = 'simulation-record';
+  var dataStr =
+    'data:text/json;charset=utf-8,' +
+    encodeURIComponent(JSON.stringify(exportObj));
+  var downloadAnchorNode = document.createElement('a');
+  downloadAnchorNode.setAttribute('href', dataStr);
+  downloadAnchorNode.setAttribute('download', exportName + '.json');
+  document.body.appendChild(downloadAnchorNode); // required for firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
+}
+
+downloadButton = document.getElementById('download-button');
+downloadButton.addEventListener('click', downloadObjectAsJson);
