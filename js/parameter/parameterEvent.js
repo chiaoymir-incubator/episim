@@ -18,6 +18,11 @@ function parameterEvent(event) {
   eval(parData.runFAtEnd);
 
   if (parData.requiresReset) {
+    particleDataArr = {
+      infected: [],
+      susceptible: [],
+      removed: [],
+    };
     if (currentSim == 'simpleCase') {
       playing = false;
       clearInterval(loopinterval);
@@ -25,9 +30,9 @@ function parameterEvent(event) {
       removeParticlesFromBoundary('simpleCaseGraphG', 'simpleCaseGraphB');
       removeGraph('simpleCaseGraphG');
       removeGraph('plotG');
-      // dayCount = 0;
-      // timecount = 0;
-      // loopcount = 0;
+      dayCount = 0;
+      timecount = 0;
+      loopcount = 0;
       setUpSimpleCaseGraph();
       setUpPlotGraph();
       handleSDObedience();

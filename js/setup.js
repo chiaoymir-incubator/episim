@@ -206,7 +206,7 @@ parameterData[11] = {
 parameterData[12] = {
   name: 'nPerCommunity',
   div: '@@@ individuals per community',
-  initValue: 60,
+  initValue: 30,
   max: 500,
   min: 3,
   step: 1,

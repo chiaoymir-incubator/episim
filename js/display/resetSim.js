@@ -1,4 +1,9 @@
 function resetSim(event) {
+  particleDataArr = {
+    infected: [],
+    susceptible: [],
+    removed: [],
+  };
   if (currentSim == 'simpleCase') {
     // playing = false
     clearInterval(loopinterval);

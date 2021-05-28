@@ -19,6 +19,12 @@ function handleConfigChange(event) {
   currentSimG = handleCases[event.target.id][quarantineOn][2];
   currentSim = handleCases[event.target.id][quarantineOn][1];
 
+  particleDataArr = {
+    infected: [],
+    susceptible: [],
+    removed: [],
+  };
+
   dummye = {};
   resetSimHard(dummye);
 
