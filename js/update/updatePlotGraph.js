@@ -15,29 +15,33 @@ function updatePlotGraph() {
   console.log(particleDataArr);
   // ===============================
 
-  // ====== experiment timeline ====
-  if (dayCount == 10) {
-    parameterNumber = 0;
-    value = 0.05;
-    parData = parameterData[parameterNumber];
-    simulationParameters[parData.name] = eval(
-      parData.transform.replace(/#paraValue#/g, value)
-    );
-    pName = parameterData[parameterNumber].name + 'div';
-    document.getElementById('parameter' + pName + 'Text').innerHTML =
-      parData.div.replace(
-        /@@@/g,
-        '<font style="font-weight: bold; color:hsla(' +
-          parData.color +
-          ', 1);">' +
-          value +
-          '</font>'
+  // === parameter change on time ====
+  day = dayCount.toString();
+  if (day in eventArr) {
+    console.log(eventArr[day]);
+
+    for (let key in eventArr[day]) {
+      parameterNumber = parametersMapping[key];
+      value = eventArr[day][key];
+      parData = parameterData[parameterNumber];
+      simulationParameters[parData.name] = eval(
+        parData.transform.replace(/#paraValue#/g, value)
       );
-    eval(parData.runFAtEnd);
-    // simulationParameters.infectionRadius = 0.1;
+      pName = parameterData[parameterNumber].name + 'div';
+      document.getElementById('parameter' + pName + 'Text').innerHTML =
+        parData.div.replace(
+          /@@@/g,
+          '<font style="font-weight: bold; color:hsla(' +
+            parData.color +
+            ', 1);">' +
+            value +
+            '</font>'
+        );
+      eval(parData.runFAtEnd);
+    }
   }
 
-  // ===============================
+  // ==================================
 
   removedV = (particleCounts[graphForParticle]['removed'] * 100) / totalP;
   infectedV = (particleCounts[graphForParticle]['infected'] * 100) / totalP;

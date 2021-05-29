@@ -1,0 +1,10 @@
+{
+  "20": {
+    "infectionRadius": 0.3,
+    "probabilityofInfection": 3
+  },
+  "30": {
+    "infectionRadius": 0.05,
+    "infectionTime": 20
+  }
+}
