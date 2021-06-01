@@ -12,7 +12,7 @@ function updatePlotGraph() {
   );
   particleDataArr.removed.push(particleCounts[graphForParticle]['removed']);
 
-  console.log(particleDataArr);
+  // console.log(particleDataArr);
   // ===============================
 
   removedV = (particleCounts[graphForParticle]['removed'] * 100) / totalP;
