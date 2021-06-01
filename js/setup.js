@@ -206,7 +206,7 @@ parameterData[11] = {
 parameterData[12] = {
   name: 'nPerCommunity',
   div: '@@@ individuals per community',
-  initValue: 60,
+  initValue: 30,
   max: 500,
   min: 3,
   step: 1,
@@ -306,6 +306,28 @@ parameterData[18] = {
 
 parameterSliderRMap = {};
 
+parametersMapping = {
+  infectionRadius: 0,
+  probabilityofInfection: 1,
+  fractionInfectedInitially: 2,
+  infectionTime: 3,
+  socialDistancingFactorA: 4,
+  socialDistanceObedientPop: 5,
+  boxesToConsider: 6,
+  quarantineAfter: 7,
+  startQ: 8,
+  probabilityOfNoSymptoms: 9,
+  probabilityCLVisit: 10,
+  travelProbability: 11,
+  nPerCommunity: 12,
+  infectNCommunitiesInitially: 13,
+  numberOfParticles: 14,
+  particleSize: 15,
+  frameRate: 16,
+  daysEverySecond: 17,
+  fractionRemovedInitially: 18,
+};
+
 parameterHScroll();
 
 addVariousParameters();
@@ -338,6 +360,8 @@ particleDataArr = {
   susceptible: [],
   removed: [],
 };
+
+eventArr = {};
 
 particleCountTimeLine = {};
 
@@ -478,3 +502,18 @@ function downloadObjectAsJson() {
 
 downloadButton = document.getElementById('download-button');
 downloadButton.addEventListener('click', downloadObjectAsJson);
+
+(function () {
+  function onChange(event) {
+    var reader = new FileReader();
+    reader.onload = onReaderLoad;
+    reader.readAsText(event.target.files[0]);
+  }
+
+  function onReaderLoad(event) {
+    eventArr = JSON.parse(event.target.result);
+    console.log(eventArr);
+  }
+
+  document.getElementById('set-record').addEventListener('change', onChange);
+})();

@@ -15,6 +15,34 @@ function updatePlotGraph() {
   // console.log(particleDataArr);
   // ===============================
 
+  // === parameter change on time ====
+  day = dayCount.toString();
+  if (day in eventArr) {
+    console.log(eventArr[day]);
+
+    for (let key in eventArr[day]) {
+      parameterNumber = parametersMapping[key];
+      value = eventArr[day][key];
+      parData = parameterData[parameterNumber];
+      simulationParameters[parData.name] = eval(
+        parData.transform.replace(/#paraValue#/g, value)
+      );
+      pName = parameterData[parameterNumber].name + 'div';
+      document.getElementById('parameter' + pName + 'Text').innerHTML =
+        parData.div.replace(
+          /@@@/g,
+          '<font style="font-weight: bold; color:hsla(' +
+            parData.color +
+            ', 1);">' +
+            value +
+            '</font>'
+        );
+      eval(parData.runFAtEnd);
+    }
+  }
+
+  // ==================================
+
   removedV = (particleCounts[graphForParticle]['removed'] * 100) / totalP;
   infectedV = (particleCounts[graphForParticle]['infected'] * 100) / totalP;
   susceptibleV =
