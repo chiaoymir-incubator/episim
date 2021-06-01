@@ -14,6 +14,9 @@ function parameterEvent(event) {
         event.target.value +
         '</font>'
     );
+    
+  // update param list current keyframe data
+  param_list[current_selected_idx].params[parameterData[parameterNumber].name] = event.target.value
 
   eval(parData.runFAtEnd);
 
@@ -24,21 +27,25 @@ function parameterEvent(event) {
       removed: [],
     };
     if (currentSim == 'simpleCase') {
-      playing = false;
-      clearInterval(loopinterval);
-      clearInterval(loopinterval2);
-      removeParticlesFromBoundary('simpleCaseGraphG', 'simpleCaseGraphB');
-      removeGraph('simpleCaseGraphG');
-      removeGraph('plotG');
-      dayCount = 0;
-      timecount = 0;
-      loopcount = 0;
-      setUpSimpleCaseGraph();
-      setUpPlotGraph();
-      handleSDObedience();
-      playCalculationLoop();
-      playAnimationLoop();
-      playing = true;
+      // if (setting_key_mode)
+      // {
+        playing = false;
+        clearInterval(loopinterval);
+        clearInterval(loopinterval2);
+        removeParticlesFromBoundary('simpleCaseGraphG', 'simpleCaseGraphB');
+        removeGraph('simpleCaseGraphG');
+        removeGraph('plotG');
+        dayCount = 0;
+        timecount = 0;
+        loopcount = 0;
+        setUpSimpleCaseGraph();
+        setUpPlotGraph();
+        handleSDObedience();
+        playCalculationLoop();
+        playAnimationLoop();
+        // playing = true;
+      // }
+        
     } else if (currentSim == 'simpleCase&Q') {
       playing = false;
       clearInterval(loopinterval);

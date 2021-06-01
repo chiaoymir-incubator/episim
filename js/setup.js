@@ -342,7 +342,7 @@ stateColors = {
 
 loopcount = 0;
 timecount = 0;
-playing = true;
+playing = false;
 
 frameInterval = 0;
 calculationFrameInterval = 0;

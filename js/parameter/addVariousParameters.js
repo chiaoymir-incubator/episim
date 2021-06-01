@@ -1,3 +1,4 @@
+var paramName_DOM_mapping = {}
 function addVariousParameters() {
   if (dmode == 'landscape') {
     for (var parameterIndex in parameterData) {
@@ -21,6 +22,10 @@ function addVariousParameters() {
         pName +
         'SliderH" style="margin:0px;width:55%; position: relative; z-index: 1; display: flex; align-items: center;"></div></div><div style="width: 100%; height: 7%"></div>';
       $(parameterDivData).appendTo('#parametersListH');
+
+      // create a DOM element mapping
+      paramName_DOM_mapping[parameterData[parameterIndex].name] = pName + 'Slider'
+
       divSlider(
         'parameter' + pName + 'SliderH',
         pName + 'Slider',

@@ -1,4 +1,6 @@
 function resetSim(event) {
+  playing = false;
+  document.getElementById("playbutton").value = "PLAY";
   particleDataArr = {
     infected: [],
     susceptible: [],
@@ -20,6 +22,7 @@ function resetSim(event) {
     setAnimationDetails();
     playCalculationLoop();
     playAnimationLoop();
+    
     // playing = true
   } else if (currentSim == 'simpleCase&Q') {
     // playing = false
