@@ -362,6 +362,8 @@ particleDataArr = {
 };
 
 eventArr = {};
+pauseArr = {};
+stopFlag = 0;
 
 particleCountTimeLine = {};
 
@@ -511,7 +513,18 @@ downloadButton.addEventListener('click', downloadObjectAsJson);
   }
 
   function onReaderLoad(event) {
+    var tempArr = JSON.parse(event.target.result);
+    var tempEventArr = {};
     eventArr = JSON.parse(event.target.result);
+    for (let day in tempArr) {
+      if (tempArr[day] === 'pause') {
+        pauseArr[day] = '';
+        tempEventArr[day] = {};
+      } else {
+        tempEventArr[day] = tempArr[day];
+      }
+    }
+    eventArr = tempEventArr;
     deleteAllKeyFramesUI();
     uploadAddKeyFrame();
     console.log(eventArr);
@@ -519,3 +532,8 @@ downloadButton.addEventListener('click', downloadObjectAsJson);
 
   document.getElementById('set-record').addEventListener('change', onChange);
 })();
+
+function setStopTime() {
+  var time = document.getElementById('set-stop');
+  console.log(time.value);
+}

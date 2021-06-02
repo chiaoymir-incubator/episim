@@ -17,13 +17,24 @@ function updatePlotGraph() {
 
   // === parameter change on time ====
   day = dayCount.toString();
-  if (day in eventArr) {
-    // console.log(eventArr[day]);
-    if (eventArr[day] === 'pause') {
+  console.log(day);
+  if (day != 0) {
+    if (day in pauseArr) {
+      console.log('pause');
       playing = false;
       document.getElementById('playbutton').value = 'PLAY';
       setting_key_mode = true;
       return;
+    } else if (particleCounts[graphForParticle]['infected'] === 0) {
+      if (stopFlag === 0) {
+        stopFlag = 1;
+      } else {
+        console.log('pause');
+        playing = false;
+        document.getElementById('playbutton').value = 'PLAY';
+        setting_key_mode = true;
+        return;
+      }
     }
   }
 
