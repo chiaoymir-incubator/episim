@@ -512,6 +512,8 @@ downloadButton.addEventListener('click', downloadObjectAsJson);
 
   function onReaderLoad(event) {
     eventArr = JSON.parse(event.target.result);
+    deleteAllKeyFramesUI();
+    uploadAddKeyFrame();
     console.log(eventArr);
   }
 

@@ -85,6 +85,21 @@ function handleAddKeyframe(day) {
   }
 }
 
+function uploadAddKeyFrame() {
+  for (let day in eventArr) {
+    var simParams = getSimParams(simulationParameters);
+    for (let prop in eventArr[day]) {
+      simParams[prop] = eventArr[day][prop];
+    }
+    param_list.push({
+      start_day: day,
+      params: JSON.parse(JSON.stringify(simParams)),
+    });
+    updateParametersUI();
+    updateAllKeyFramesUI();
+  }
+}
+
 function handlePlayingKeyframe() {
   if (current_selected_idx == param_list.length - 1) {
   } else {
@@ -92,6 +107,11 @@ function handlePlayingKeyframe() {
       switchToKeyFrame(++current_selected_idx);
     }
   }
+}
+
+function deleteAllKeyFramesUI() {
+  var init_params = param_list[0];
+  param_list = [init_params];
 }
 
 function switchToKeyFrame(idx) {
