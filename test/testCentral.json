@@ -1,0 +1,9 @@
+{
+  "10": {
+    "probabilityCLVisit": 0.01
+  },
+  "30": {
+    "probabilityCLVisit": 0.001
+  },
+  "50": "pause"
+}

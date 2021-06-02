@@ -100,7 +100,7 @@ parameterData[3] = {
 parameterData[4] = {
   name: 'socialDistancingFactorA',
   div: 'Social Distancing Factor &nbsp&nbsp @@@',
-  initValue: 0,
+  initValue: 0.01,
   max: 1,
   min: 0,
   step: 0.01,
@@ -206,7 +206,7 @@ parameterData[11] = {
 parameterData[12] = {
   name: 'nPerCommunity',
   div: '@@@ individuals per community',
-  initValue: 30,
+  initValue: 60,
   max: 500,
   min: 3,
   step: 1,

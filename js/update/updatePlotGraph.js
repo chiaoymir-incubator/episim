@@ -19,6 +19,12 @@ function updatePlotGraph() {
   day = dayCount.toString();
   if (day in eventArr) {
     console.log(eventArr[day]);
+    if (eventArr[day] === 'pause') {
+      playing = false;
+      document.getElementById('playbutton').value = 'PLAY';
+      setting_key_mode = true;
+      return;
+    }
 
     for (let key in eventArr[day]) {
       parameterNumber = parametersMapping[key];

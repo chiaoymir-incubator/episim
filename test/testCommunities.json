@@ -1,0 +1,9 @@
+{
+  "5": {
+    "travelProbability": 10
+  },
+  "25": {
+    "travelProbability": 0.5
+  },
+  "100": "pause"
+}
