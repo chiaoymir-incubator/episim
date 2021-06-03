@@ -6,7 +6,7 @@ function getSimParams() {
 
   // ========= recover parameter original value ===========
   simParams.probabilityCLVisit *= 100;
-  simParams.probabilityOfNoSymptoms *= 100;
+  // simParams.probabilityOfNoSymptoms *= 100;
   simParams.probabilityofInfection *= 100;
   simParams.socialDistanceObedientPop *= 100;
   simParams.travelProbability *= 100;

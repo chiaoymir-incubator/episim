@@ -1,9 +1,11 @@
 {
-  "10": {
-    "probabilityCLVisit": 0.01
+  "1": {
+    "infectionRadius": 0.05
+  },
+  "3": {
+    "probabilityCLVisit": 0.1
   },
   "30": {
-    "probabilityCLVisit": 0.001
-  },
-  "50": "pause"
+    "probabilityCLVisit": 0.1
+  }
 }
