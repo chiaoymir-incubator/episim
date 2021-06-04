@@ -51,7 +51,7 @@ function updateParametersUI() {
       Object.values(parameterData).filter((x) => x.name === param_title)[0]
         .requiresReset == false
     ) {
-      console.log(paramName_DOM_mapping[param_title]);
+      // console.log(paramName_DOM_mapping[param_title]);
       let slider_controlUI = document.getElementById(
         paramName_DOM_mapping[param_title]
       );
@@ -78,7 +78,7 @@ function handleAddKeyframe(day) {
     } else {
       param_list.push({
         start_day: keyframe_day,
-        params: JSON.parse(JSON.stringify(getSimParams(simulationParameters))),
+        params: JSON.parse(JSON.stringify(simulationParameters)),
       });
       updateAllKeyFramesUI();
     }
@@ -87,17 +87,16 @@ function handleAddKeyframe(day) {
 
 function uploadAddKeyFrame() {
   for (let day in eventArr) {
-    var simParams = getSimParams(simulationParameters);
     for (let prop in eventArr[day]) {
-      simParams[prop] = eventArr[day][prop];
+      simulationParameters[prop] = eventArr[day][prop];
     }
     param_list.push({
       start_day: day,
-      params: JSON.parse(JSON.stringify(simParams)),
+      params: JSON.parse(JSON.stringify(simulationParameters)),
     });
-    updateParametersUI();
-    updateAllKeyFramesUI();
   }
+  updateParametersUI();
+  updateAllKeyFramesUI();
 }
 
 function handlePlayingKeyframe() {

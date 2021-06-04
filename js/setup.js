@@ -513,6 +513,8 @@ downloadButton.addEventListener('click', downloadObjectAsJson);
   }
 
   function onReaderLoad(event) {
+    pauseArr = {};
+    eventArr = {};
     var tempArr = JSON.parse(event.target.result);
     var tempEventArr = {};
     eventArr = JSON.parse(event.target.result);
