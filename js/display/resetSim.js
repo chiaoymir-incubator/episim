@@ -6,6 +6,10 @@ function resetSim(event) {
     susceptible: [],
     removed: [],
   };
+
+  // reset our chart
+  resetMyChartToInitial()
+  
   if (currentSim == 'simpleCase') {
     // playing = false
     clearInterval(loopinterval);

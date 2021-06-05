@@ -7,7 +7,9 @@ function handleLayout1() {
     document.getElementById('mainVSpacer3').style.width = '2%';
 
     $('#plotGraphH').appendTo('#MainBlock1');
+    $('#myChart').appendTo('#MainBlock1');
     $('#mainB2HSpacer5').appendTo('#MainBlock1');
+    $('#mytineline_div').appendTo('#MainBlock1');
     $('#parametersH').appendTo('#MainBlock1');
     $('#mainB2HSpacer6').appendTo('#MainBlock1');
 
@@ -74,8 +76,12 @@ function handleLayout1() {
     // document.getElementById('centralLocationoptionH').style.float = 'right'
     // document.getElementById('CommunitiesoptionH').style.float = 'right'
 
-    document.getElementById('plotGraphH').style.height = '40%';
+    // document.getElementById('plotGraphH').style.height = '40%';
+    document.getElementById('myChart').style.height = '40%';
+    
     document.getElementById('parametersH').style.height = '45%';
+    document.getElementById('mytineline_div').style.height = '10%';
+    
 
     document.getElementById('parametersTitleText').style.fontSize = '1.1vmax';
     document.getElementById('parametersTitleText').style.height = '10%';

@@ -14,7 +14,14 @@ function updatePlotGraph() {
 
   // console.log(particleDataArr);
   // ===============================
+  // =============Update my chart==================
+  myChart.data.datasets[0].data.push(particleCounts[graphForParticle]['infected'])
+  myChart.data.datasets[1].data.push(particleCounts[graphForParticle]['susceptible'])
+  myChart.data.datasets[2].data.push(particleCounts[graphForParticle]['removed'])
+  myChart.data.labels.push(dayCount)
+  myChart.update();
 
+  // ==============================================
   // === parameter change on time ====
   day = dayCount.toString();
   console.log(day);
@@ -77,6 +84,9 @@ function updatePlotGraph() {
   particleCountTimeLine[graphForParticle]['removed'].push([0, 0]);
   particleCountTimeLine[graphForParticle]['infected'].push([0, 0]);
   particleCountTimeLine[graphForParticle]['susceptible'].push([0, 0]);
+
+  // console.log(particleCountTimeLine[graphForParticle])
+
 
   updatePathPoints(
     'plotG',
