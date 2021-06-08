@@ -18,7 +18,7 @@ function resetSim(event) {
     loopcount = 0;
     removeParticlesFromBoundary('simpleCaseGraphG', 'simpleCaseGraphB');
     removeGraph('simpleCaseGraphG');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpSimpleCaseGraph();
     setUpPlotGraph();
@@ -37,7 +37,7 @@ function resetSim(event) {
     removeParticlesFromBoundary('simpleCaseGraph&QG', 'simpleCaseGraph&QB');
     removeParticlesFromBoundary('simpleCaseGraph&QG', 'simpleQuarantineB');
     removeGraph('simpleCaseGraph&QG');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpSimpleQuarantineCaseGraph();
     setUpPlotGraph();
@@ -54,7 +54,7 @@ function resetSim(event) {
     loopcount = 0;
     removeParticlesFromBoundary('centralLocationCaseG', 'centralLocationCaseB');
     removeGraph('centralLocationCaseG');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCentralLocationCaseGraph();
     setUpPlotGraph();
@@ -78,7 +78,7 @@ function resetSim(event) {
       'centralLocationQuarantineB'
     );
     removeGraph('centralLocationQuarantineCaseGraph');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCentralLocationQuarantineCaseGraph();
     setUpPlotGraph();
@@ -102,7 +102,7 @@ function resetSim(event) {
       }
     }
     removeGraph('communitiesCaseGraph');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCommunitiesCaseGraph();
     setUpPlotGraph();
@@ -131,7 +131,7 @@ function resetSim(event) {
       'communitiesQuarantineB'
     );
     removeGraph('communitiesQuarantineCaseGraph');
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCommunitiesQuarantineCaseGraph();
     setUpPlotGraph();

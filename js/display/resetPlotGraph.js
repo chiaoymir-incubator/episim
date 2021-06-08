@@ -72,76 +72,76 @@ function resetPlotGraph() {
 
   // graphoptions.isgraphH = 'yes'
 
-  addGraph(graphH, 'plotG', graphoptions);
+  // addGraph(graphH, 'plotG', graphoptions);
 
-  options = {};
-  options.x1 = 0;
-  options.y1 = 0;
-  options.x2 = 10;
-  options.y2 = 0;
-  options.linecolor = 'hsla(0, 0%, 70%, 1)';
-  options.strokewidth = 1;
+  // options = {};
+  // options.x1 = 0;
+  // options.y1 = 0;
+  // options.x2 = 10;
+  // options.y2 = 0;
+  // options.linecolor = 'hsla(0, 0%, 70%, 1)';
+  // options.strokewidth = 1;
 
-  addLine('plotG', 'xAxisLine', options);
+  // addLine('plotG', 'xAxisLine', options);
 
-  options = {};
-  options.x1 = 0;
-  options.y1 = 0;
-  options.x2 = 0;
-  options.y2 = 100;
-  options.linecolor = 'hsla(0, 0%, 70%, 1)';
-  options.strokewidth = 1;
+  // options = {};
+  // options.x1 = 0;
+  // options.y1 = 0;
+  // options.x2 = 0;
+  // options.y2 = 100;
+  // options.linecolor = 'hsla(0, 0%, 70%, 1)';
+  // options.strokewidth = 1;
 
-  addLine('plotG', 'yAxisLine', options);
+  // addLine('plotG', 'yAxisLine', options);
 
-  options = {};
-  options.points = [
-    [0, 0],
-    [0, 0],
-  ];
-  options.pathcolor = 'hsla(' + stateColors['removed'] + ',0)';
-  removedLinePath = addPath('plotG', 'removedLine', options)[0];
-  removedLinePath.style.fill = 'hsla(' + stateColors['removed'] + ',1)';
+  // options = {};
+  // options.points = [
+  //   [0, 0],
+  //   [0, 0],
+  // ];
+  // options.pathcolor = 'hsla(' + stateColors['removed'] + ',0)';
+  // removedLinePath = addPath('plotG', 'removedLine', options)[0];
+  // removedLinePath.style.fill = 'hsla(' + stateColors['removed'] + ',1)';
 
-  options = {};
-  options.x = 10 * 1.03;
-  options.y = 80;
-  options.text = '1% Removed';
-  options.fontSize = fontForLineLabel;
-  options.textcolor = 'hsla(190, 0%, 70%, 1)';
-  addText('plotG', 'removedText', options);
+  // options = {};
+  // options.x = 10 * 1.03;
+  // options.y = 80;
+  // options.text = '1% Removed';
+  // options.fontSize = fontForLineLabel;
+  // options.textcolor = 'hsla(190, 0%, 70%, 1)';
+  // addText('plotG', 'removedText', options);
 
-  options = {};
-  options.points = [
-    [0, 0],
-    [0, 0],
-  ];
-  options.pathcolor = 'hsla(' + stateColors['susceptible'] + ',0)';
-  susceptibleLinePath = addPath('plotG', 'susceptibleLine', options)[0];
-  susceptibleLinePath.style.fill = 'hsla(' + stateColors['susceptible'] + ',1)';
+  // options = {};
+  // options.points = [
+  //   [0, 0],
+  //   [0, 0],
+  // ];
+  // options.pathcolor = 'hsla(' + stateColors['susceptible'] + ',0)';
+  // susceptibleLinePath = addPath('plotG', 'susceptibleLine', options)[0];
+  // susceptibleLinePath.style.fill = 'hsla(' + stateColors['susceptible'] + ',1)';
 
-  options = {};
-  options.x = 10 * 1.03;
-  options.y = 50;
-  options.text = '1% Susceptible';
-  options.fontSize = fontForLineLabel;
-  options.textcolor = 'hsla(' + stateColors['susceptible'] + ',1)';
-  addText('plotG', 'susceptibleText', options);
+  // options = {};
+  // options.x = 10 * 1.03;
+  // options.y = 50;
+  // options.text = '1% Susceptible';
+  // options.fontSize = fontForLineLabel;
+  // options.textcolor = 'hsla(' + stateColors['susceptible'] + ',1)';
+  // addText('plotG', 'susceptibleText', options);
 
-  options = {};
-  options.points = [
-    [0, 0],
-    [0, 0],
-  ];
-  options.pathcolor = 'hsla(' + stateColors['infected'] + ',0)';
-  infectedLinePath = addPath('plotG', 'infectedLine', options)[0];
-  infectedLinePath.style.fill = 'hsla(' + stateColors['infected'] + ',1)';
+  // options = {};
+  // options.points = [
+  //   [0, 0],
+  //   [0, 0],
+  // ];
+  // options.pathcolor = 'hsla(' + stateColors['infected'] + ',0)';
+  // infectedLinePath = addPath('plotG', 'infectedLine', options)[0];
+  // infectedLinePath.style.fill = 'hsla(' + stateColors['infected'] + ',1)';
 
-  options = {};
-  options.x = 10 * 1.03;
-  options.y = 20;
-  options.text = '1% Infected';
-  options.fontSize = fontForLineLabel;
-  options.textcolor = 'hsla(' + stateColors['infected'] + ',1)';
-  addText('plotG', 'infectedText', options);
+  // options = {};
+  // options.x = 10 * 1.03;
+  // options.y = 20;
+  // options.text = '1% Infected';
+  // options.fontSize = fontForLineLabel;
+  // options.textcolor = 'hsla(' + stateColors['infected'] + ',1)';
+  // addText('plotG', 'infectedText', options);
 }

@@ -10,7 +10,7 @@ function resetSimHard(event) {
       removeGraph('simpleCaseGraphG');
     }
 
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpSimpleCaseGraph();
     setUpPlotGraph();
@@ -31,7 +31,7 @@ function resetSimHard(event) {
       removeGraph('simpleCaseGraph&QG');
     }
 
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpSimpleQuarantineCaseGraph();
     setUpPlotGraph();
@@ -53,7 +53,7 @@ function resetSimHard(event) {
       );
       removeGraph('centralLocationCaseG');
     }
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCentralLocationCaseGraph();
     setUpPlotGraph();
@@ -80,7 +80,7 @@ function resetSimHard(event) {
       removeGraph('centralLocationQuarantineCaseGraph');
     }
 
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCentralLocationQuarantineCaseGraph();
     setUpPlotGraph();
@@ -110,7 +110,7 @@ function resetSimHard(event) {
       }
       removeGraph('communitiesCaseGraph');
     }
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCommunitiesCaseGraph();
     setUpPlotGraph();
@@ -147,7 +147,7 @@ function resetSimHard(event) {
       );
       removeGraph('communitiesQuarantineCaseGraph');
     }
-    removeGraph('plotG');
+    // removeGraph('plotG');
     dayCount = 0;
     setUpCommunitiesQuarantineCaseGraph();
     setUpPlotGraph();

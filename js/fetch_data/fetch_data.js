@@ -89,6 +89,11 @@ function btn_fetch_data_OnClick(){
         jhu_data.push([
             percentage_c,percentage_remove, 1-percentage_c-percentage_remove
         ])
+        myChart.data.datasets[3].data.push(percentage_c)
+        myChart.data.datasets[4].data.push(1-percentage_c-percentage_remove)
+        myChart.data.datasets[5].data.push(percentage_remove)
+
     }
+    myChart.update();
     console.log(jhu_data)
 }

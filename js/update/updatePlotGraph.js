@@ -15,9 +15,9 @@ function updatePlotGraph() {
   // console.log(particleDataArr);
   // ===============================
   // =============Update my chart==================
-  myChart.data.datasets[0].data.push(particleCounts[graphForParticle]['infected'])
-  myChart.data.datasets[1].data.push(particleCounts[graphForParticle]['susceptible'])
-  myChart.data.datasets[2].data.push(particleCounts[graphForParticle]['removed'])
+  myChart.data.datasets[0].data.push((particleCounts[graphForParticle]['infected']) / totalP)
+  myChart.data.datasets[1].data.push((particleCounts[graphForParticle]['susceptible']) / totalP)
+  myChart.data.datasets[2].data.push((particleCounts[graphForParticle]['removed']) / totalP)
   myChart.data.labels.push(dayCount)
   myChart.update();
 
@@ -71,11 +71,11 @@ function updatePlotGraph() {
     infectedV,
   ]);
 
-  if (dayCount > 10) {
-    graphData['plotG'].xmajorgridlabelOnlyIf =
-      'value >= 0 && value <= ' + dayCount;
-    updateGraphZoom('plotG', { xmax: dayCount + dayCount * 0.3 });
-  }
+  // if (dayCount > 10) {
+  //   graphData['plotG'].xmajorgridlabelOnlyIf =
+  //     'value >= 0 && value <= ' + dayCount;
+  //   updateGraphZoom('plotG', { xmax: dayCount + dayCount * 0.3 });
+  // }
 
   particleCountTimeLine[graphForParticle]['removed'].push([dayCount, 0]);
   particleCountTimeLine[graphForParticle]['infected'].push([dayCount, 0]);
@@ -88,54 +88,54 @@ function updatePlotGraph() {
   // console.log(particleCountTimeLine[graphForParticle])
 
 
-  updatePathPoints(
-    'plotG',
-    'removedLine',
-    particleCountTimeLine[graphForParticle]['removed']
-  );
-  updatePathPoints(
-    'plotG',
-    'infectedLine',
-    particleCountTimeLine[graphForParticle]['infected']
-  );
-  updatePathPoints(
-    'plotG',
-    'susceptibleLine',
-    particleCountTimeLine[graphForParticle]['susceptible']
-  );
+  // updatePathPoints(
+  //   'plotG',
+  //   'removedLine',
+  //   particleCountTimeLine[graphForParticle]['removed']
+  // );
+  // updatePathPoints(
+  //   'plotG',
+  //   'infectedLine',
+  //   particleCountTimeLine[graphForParticle]['infected']
+  // );
+  // updatePathPoints(
+  //   'plotG',
+  //   'susceptibleLine',
+  //   particleCountTimeLine[graphForParticle]['susceptible']
+  // );
 
-  options = {};
-  options.text = removedV.toFixed(1) + '% removed';
-  options.y = (100 + infectedV + susceptibleV) / 2;
-  yremovedTextLoc = (100 + infectedV + susceptibleV) / 2;
-  if (dayCount >= 10) {
-    options.x = dayCount * 1.03;
-  }
-  updateText('plotG', 'removedText', options);
+  // options = {};
+  // options.text = removedV.toFixed(1) + '% removed';
+  // options.y = (100 + infectedV + susceptibleV) / 2;
+  // yremovedTextLoc = (100 + infectedV + susceptibleV) / 2;
+  // if (dayCount >= 10) {
+  //   options.x = dayCount * 1.03;
+  // }
+  // updateText('plotG', 'removedText', options);
 
-  options = {};
-  options.text = susceptibleV.toFixed(1) + '% susceptible';
-  options.y = (susceptibleV + infectedV + infectedV) / 2;
-  ysusceptibleTextLoc = (susceptibleV + infectedV + infectedV) / 2;
-  if ((100 - infectedV) / 2 < 15) {
-    options.y = (100 + infectedV + susceptibleV) / 2 - 15;
-    ysusceptibleTextLoc = (100 + infectedV + susceptibleV) / 2 - 15;
-  }
-  if (dayCount >= 10) {
-    options.x = dayCount * 1.03;
-  }
-  updateText('plotG', 'susceptibleText', options);
+  // options = {};
+  // options.text = susceptibleV.toFixed(1) + '% susceptible';
+  // options.y = (susceptibleV + infectedV + infectedV) / 2;
+  // ysusceptibleTextLoc = (susceptibleV + infectedV + infectedV) / 2;
+  // if ((100 - infectedV) / 2 < 15) {
+  //   options.y = (100 + infectedV + susceptibleV) / 2 - 15;
+  //   ysusceptibleTextLoc = (100 + infectedV + susceptibleV) / 2 - 15;
+  // }
+  // if (dayCount >= 10) {
+  //   options.x = dayCount * 1.03;
+  // }
+  // updateText('plotG', 'susceptibleText', options);
 
-  options = {};
-  options.text = infectedV.toFixed(1) + '% infected';
-  options.y = infectedV / 2;
-  if (ysusceptibleTextLoc - infectedV / 2 < 15) {
-    options.y = ysusceptibleTextLoc - 15;
-  }
-  if (dayCount >= 10) {
-    options.x = dayCount * 1.03;
-  }
-  updateText('plotG', 'infectedText', options);
+  // options = {};
+  // options.text = infectedV.toFixed(1) + '% infected';
+  // options.y = infectedV / 2;
+  // if (ysusceptibleTextLoc - infectedV / 2 < 15) {
+  //   options.y = ysusceptibleTextLoc - 15;
+  // }
+  // if (dayCount >= 10) {
+  //   options.x = dayCount * 1.03;
+  // }
+  // updateText('plotG', 'infectedText', options);
 
   casesSoFar = 0;
   totalInfections = 0;

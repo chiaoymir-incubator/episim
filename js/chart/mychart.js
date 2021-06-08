@@ -6,11 +6,12 @@ const initial_data = {
             label: 'infected',
             data: [],
             backgroundColor: [
-                'rgba(255, 127, 102, 1)'
+                'rgba(255, 127, 102, 0.7)'
             ],
             borderColor: [
                 'rgba(255, 127, 102, 1)'
             ],
+            mode:"hide",
             borderWidth: 1,
             fill: true
         },
@@ -18,7 +19,7 @@ const initial_data = {
             label: 'susceptible',
             data: [],
             backgroundColor: [
-                'rgba(0, 191, 255, 1)'
+                'rgba(0, 191, 255, 0.7)'
             ],
             borderColor: [
                 'rgba(0, 191, 255, 1)'
@@ -31,7 +32,45 @@ const initial_data = {
             data: [],
             backgroundColor: [
                 // 'rgba(135, 135, 135, 1)'
+                'rgba(102, 102, 102, 0.7)'
+            ],
+            borderColor: [
                 'rgba(102, 102, 102, 1)'
+            ],
+            borderWidth: 1,
+            fill: true
+        },
+        {
+            label: 'infected_truth',
+            data: [],
+            backgroundColor: [
+                'rgba(255, 179, 102, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 77, 77, 1)'
+            ],
+            mode:"hide",
+            borderWidth: 1,
+            fill: true
+        },
+        {
+            label: 'susceptible_truth',
+            data: [],
+            backgroundColor: [
+                'rgba(0, 191, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(0, 191, 255, 1)'
+            ],
+            borderWidth: 1,
+            fill: true
+        },
+        {
+            label: 'removed_truth',
+            data: [],
+            backgroundColor: [
+                // 'rgba(135, 135, 135, 1)'
+                'rgba(102, 102, 102, 0.2)'
             ],
             borderColor: [
                 'rgba(102, 102, 102, 1)'

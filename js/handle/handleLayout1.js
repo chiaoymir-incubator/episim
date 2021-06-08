@@ -9,6 +9,8 @@ function handleLayout1() {
     $('#plotGraphH').appendTo('#MainBlock1');
     $('#myChart').appendTo('#MainBlock1');
     $('#mainB2HSpacer5').appendTo('#MainBlock1');
+    $('#data_panel').appendTo('#MainBlock1');
+    
     $('#mytineline_div').appendTo('#MainBlock1');
     $('#parametersH').appendTo('#MainBlock1');
     $('#mainB2HSpacer6').appendTo('#MainBlock1');
@@ -19,7 +21,7 @@ function handleLayout1() {
     document.getElementById('maintitle').style.fontSize = '2vmax';
 
     document.getElementById('maintitle').innerHTML =
-      "<font style='font-weight: bold;'>Epidemic Simulation </font><br/><font style='font-family: Source Sans Pro; font-size: 1.1vmax; vertical-align: bottom;'>An interactive inspired by 3Blue1Brown's <a href='https://www.youtube.com/watch?v=gxAaO2rsdIs' style='text-decoration: none; cursor: pointer;' target='_blank'><font style='color: hsla(197, 100%, 50%, 1);'>'Simulating an Epidemic' video</font></a><br/><font style='font-size: 0.9vmax'>For other interactives, visit <a href='https://prajwalsouza.github.io/' style='text-decoration: none; cursor: pointer;' target='_blank'><font style='color: hsla(280, 100%, 70%, 1);'>prajwalsouza.github.io</font></a></font></font>";
+      "<font style='font-weight: bold;'>Epidemic Simulation </font><br/><font style='font-family: Source Sans Pro; font-size: 1.1vmax; vertical-align: bottom;'>生疑工程概論 Final Project<a href='https://www.youtube.com/watch?v=gxAaO2rsdIs' style='text-decoration: none; cursor: pointer;' target='_blank'><font style='color: hsla(197, 100%, 50%, 1);'></font></a><br/><font style='font-size: 0.9vmax'></font></font>";
 
     document.getElementById('mainB2HSpacer2').style.height = '3%';
     document.getElementById('caseTypeNameH').style.height = '4%';
