@@ -101,3 +101,16 @@ function resetMyChartToInitial(){
     myChart.data = JSON.parse(JSON.stringify(initial_data))
     myChart.update();
 }
+
+function btn_toggle_chart_stack_OnClick() {
+    const btn = document.getElementById("btn_toggle_chart_stack")
+    if (myChart.options.scales.y.stacked == false)
+    {
+        myChart.options.scales.y.stacked = true
+        btn.innerHTML = "unstack"
+    }else{
+        myChart.options.scales.y.stacked = false
+        btn.innerHTML = "stack"
+    }
+    myChart.update()
+}

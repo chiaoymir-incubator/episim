@@ -76,12 +76,22 @@ function btn_fetch_data_OnClick(){
     let d_c = global_confirmed_data[country_name_index]
     let d_r = (global_recovered_data.filter((x)=>(x["Country/Region"]===d_c["Country/Region"])))[0]
     let d_d = (global_death_data.filter((x)=>(x["Country/Region"]===d_c["Country/Region"])))[0]
+    if (d_c["Country/Region"] === "Taiwan*"){
+        d_c["Country/Region"] = "Taiwan"
+    }
     let population = Number(countries_pop_data.filter((x)=>(x.country===d_c["Country/Region"]))[0].population)
     let start_date = document.getElementById("txt_global_start_date").value
     let end_date = document.getElementById("txt_global_end_date").value
     let jhu_data = []
     let start_date_index = global_data_dates.indexOf(start_date)
     let end_date_index = global_data_dates.indexOf(end_date)
+    myChart.data.labels = []
+    myChart.data.datasets[0].data = []
+    myChart.data.datasets[1].data = []
+    myChart.data.datasets[2].data = []
+    myChart.data.datasets[3].data = []
+    myChart.data.datasets[4].data = []
+    myChart.data.datasets[5].data = []
     for (let i=start_date_index;i<=end_date_index;i++)
     {
         let percentage_c = Number(d_c[global_data_dates[i]]) / population
@@ -89,11 +99,15 @@ function btn_fetch_data_OnClick(){
         jhu_data.push([
             percentage_c,percentage_remove, 1-percentage_c-percentage_remove
         ])
+        myChart.data.labels.push(global_data_dates[i])
         myChart.data.datasets[3].data.push(percentage_c)
         myChart.data.datasets[4].data.push(1-percentage_c-percentage_remove)
         myChart.data.datasets[5].data.push(percentage_remove)
 
     }
     myChart.update();
+    param_list[0].params["fractionInfectedInitially"] = myChart.data.datasets[3].data[0]
+    param_list[0].params["fractionRemovedInitially"] = myChart.data.datasets[5].data[0]
+    switchToKeyFrame(0,true)
     console.log(jhu_data)
 }

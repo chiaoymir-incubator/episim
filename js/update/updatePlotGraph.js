@@ -18,7 +18,11 @@ function updatePlotGraph() {
   myChart.data.datasets[0].data.push((particleCounts[graphForParticle]['infected']) / totalP)
   myChart.data.datasets[1].data.push((particleCounts[graphForParticle]['susceptible']) / totalP)
   myChart.data.datasets[2].data.push((particleCounts[graphForParticle]['removed']) / totalP)
-  myChart.data.labels.push(dayCount)
+  if (myChart.data.labels.length < myChart.data.datasets[2].data.length)
+  {
+    myChart.data.labels.push(dayCount)
+  }
+  
   myChart.update();
 
   // ==============================================

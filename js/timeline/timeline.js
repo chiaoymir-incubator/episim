@@ -45,11 +45,11 @@ function updateAllKeyFramesUI() {
   });
 }
 
-function updateParametersUI() {
+function updateParametersUI(force=false) {
   for (const param_title in paramName_DOM_mapping) {
-    if (
+    if ( force == true || 
       Object.values(parameterData).filter((x) => x.name === param_title)[0]
-        .requiresReset == false
+        .requiresReset == false 
     ) {
       // console.log(paramName_DOM_mapping[param_title]);
       let slider_controlUI = document.getElementById(
@@ -70,7 +70,7 @@ function updateParametersUI() {
 }
 
 function handleAddKeyframe(day) {
-  let keyframe_day = prompt('Please enter keyframe day', 'Harry Potter');
+  let keyframe_day = prompt('Please enter keyframe day');
 
   if (keyframe_day != null) {
     if (keyframe_day in param_list.map((x) => x.start_day)) {
@@ -113,13 +113,15 @@ function deleteAllKeyFramesUI() {
   param_list = [init_params];
 }
 
-function switchToKeyFrame(idx) {
+function switchToKeyFrame(idx,force=false) {
   current_selected_idx = idx;
   // set simulator parameters to ketframe value
   simulationParameters = JSON.parse(
     JSON.stringify(param_list[current_selected_idx].params)
   );
-  updateParametersUI();
+  updateParametersUI(force);
   updateAllKeyFramesUI();
 }
 updateAllKeyFramesUI();
+// set initial simulationParameters to keyframe 0
+simulationParameters = param_list[0].params

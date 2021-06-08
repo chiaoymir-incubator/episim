@@ -103,7 +103,28 @@
   font-size: 1vmax;
   color: white;
   font-family: "Source Sans Pro";
+  line-height: 24px;
 }
+.mybtn{
+  background: rgb(0, 179, 255);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  text-align: center;
+  border: 0px solid rgb(179, 179, 179);
+}
+
+.select {
+  background: rgb(0, 179, 255);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: center;
+  border: 0px solid rgb(179, 179, 179);
+}
+
+
 
 #title {
   margin: 0px;
