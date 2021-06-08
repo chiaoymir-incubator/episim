@@ -1,0 +1,1 @@
+const g_start_picker = datepicker("#global_start_date",  { maxDate: new Date(2099, 0, 1) })

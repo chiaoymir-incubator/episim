@@ -1,10 +1,10 @@
 
 const initial_data = {
-    labels: [0],
+    labels: [],
     datasets: [
         {
             label: 'infected',
-            data: [0],
+            data: [],
             backgroundColor: [
                 'rgba(255, 127, 102, 1)'
             ],
@@ -16,7 +16,7 @@ const initial_data = {
         },
         {
             label: 'susceptible',
-            data: [0],
+            data: [],
             backgroundColor: [
                 'rgba(0, 191, 255, 1)'
             ],
@@ -28,7 +28,7 @@ const initial_data = {
         },
         {
             label: 'removed',
-            data: [0],
+            data: [],
             backgroundColor: [
                 // 'rgba(135, 135, 135, 1)'
                 'rgba(102, 102, 102, 1)'

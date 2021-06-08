@@ -13,7 +13,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+		
 		<link rel="icon" href="../square.png">
 
     <link rel="stylesheet" href="../css/styles.css"></link>
@@ -22,7 +23,11 @@
 
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<script src="https://unpkg.com/js-datepicker"></script>
 
 		<script type="application/ld+json">
 			{
@@ -58,7 +63,17 @@
 				
 				<div id="titleH">
 					<button id="download-button">Download Data</button>
-				  <div style='width:50%;'>
+					<button id="btn_fetch_global" onclick="btn_fetch_global_OnClick();">Fetch data</button>
+					<div class="ui-widget">
+						<label>Your preferred programming language: </label>
+						<select id="cbb_global_countries">
+						  
+						</select>
+					  </div>
+					  Start:<input id="global_start_date" type="text">
+					  End:<input id="global_end_date" type="text">
+					
+					<div style='width:50%;'>
 						<form action="/">
 								<input type="file" name="record" id="set-record" style='color:aliceblue;width:50%;'>
 								<button type="button" onclick="upload()">Upload</button>
@@ -288,6 +303,9 @@
 
 		<script src="../js/timeline/timeline.js"></script>
 		<script src="../js/chart/mychart.js"></script>
+		<!-- <script src="../js/fetch_data/combobox_ui.js"></script> -->
+		<script src="../js/fetch_data/datepicker_ui.js"></script>
+		<script src="../js/fetch_data/fetch_data.js"></script>
 
 
 	</body>
