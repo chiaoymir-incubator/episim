@@ -78,7 +78,7 @@ parameterData[2] = {
   initValue: 1,
   max: 100,
   min: 0,
-  step: 0.1,
+  step: 0.01,
   color: '10, 100%, 63%',
   transform: 'parseFloat(#paraValue#)/100',
   requiresReset: true,
@@ -488,7 +488,8 @@ graphToQMap['communitiesCase'] = [
 quarantineOn = false;
 
 // download object
-function downloadObjectAsJson() {
+function downloadObjectAsJson(e) {
+  e.preventDefault();
   var exportObj = particleDataArr;
   var exportName = 'simulation-record';
   var dataStr =

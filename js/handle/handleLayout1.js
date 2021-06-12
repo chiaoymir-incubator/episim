@@ -21,7 +21,7 @@ function handleLayout1() {
     document.getElementById('maintitle').style.fontSize = '2vmax';
 
     document.getElementById('maintitle').innerHTML =
-      "<font style='font-weight: bold;'>Epidemic Simulation </font><br/><font style='font-family: Source Sans Pro; font-size: 1.1vmax; vertical-align: bottom;'>生疑工程概論 Final Project<a href='https://www.youtube.com/watch?v=gxAaO2rsdIs' style='text-decoration: none; cursor: pointer;' target='_blank'><font style='color: hsla(197, 100%, 50%, 1);'></font></a><br/><font style='font-size: 0.9vmax'></font></font>";
+      "<font style='font-weight: bold;'>Epidemic Simulation System</font><br/><font style='font-family: Source Sans Pro; font-size: 1.1vmax; vertical-align: bottom;'>生醫工程概論 Final Project<a href='https://www.youtube.com/watch?v=gxAaO2rsdIs' style='text-decoration: none; cursor: pointer;' target='_blank'><font style='color: hsla(197, 100%, 50%, 1);'></font></a><br/><font style='font-size: 0.9vmax'></font></font>";
 
     document.getElementById('mainB2HSpacer2').style.height = '3%';
     document.getElementById('caseTypeNameH').style.height = '4%';

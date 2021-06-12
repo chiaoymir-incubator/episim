@@ -151,6 +151,7 @@ div.scrollmenu div.keyframe {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 div.scrollmenu div.selected_keyframe {

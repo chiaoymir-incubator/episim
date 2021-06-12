@@ -50,8 +50,17 @@ function fetch_jhu_global_data(){
                 _dates.splice(_dates.indexOf("Long"),1)
                 _dates.sort((x,y)=>(Date.parse(x)-Date.parse(y)))
                 global_data_dates = _dates
-                document.getElementById("txt_global_start_date").value = global_data_dates[0]
-                document.getElementById("txt_global_end_date").value = global_data_dates[global_data_dates.length-1]
+                const start_data_obj = new Date(global_data_dates[0])
+                const end_data_obj = new Date(global_data_dates[global_data_dates.length-1])
+                console.log("start",start_data_obj)
+                console.log("end",end_data_obj)
+                $( "#txt_global_start_date" ).datepicker({ minDate:  start_data_obj, maxDate: end_data_obj });
+                $( "#txt_global_start_date" ).datepicker( "setDate", start_data_obj );
+                $( "#txt_global_end_date" ).datepicker({ minDate:  start_data_obj, maxDate: end_data_obj });
+                $( "#txt_global_end_date" ).datepicker( "setDate", end_data_obj );
+                // $( "#txt_global_start_date" ).datepicker( "refresh" );
+                // document.getElementById("txt_global_start_date").value = global_data_dates[0]
+                // document.getElementById("txt_global_end_date").value = global_data_dates[global_data_dates.length-1]
 
                 update_global_combobox_items()
             }); 
@@ -80,11 +89,17 @@ function btn_fetch_data_OnClick(){
         d_c["Country/Region"] = "Taiwan"
     }
     let population = Number(countries_pop_data.filter((x)=>(x.country===d_c["Country/Region"]))[0].population)
+    console.log("population",population)
     let start_date = document.getElementById("txt_global_start_date").value
     let end_date = document.getElementById("txt_global_end_date").value
+    console.log([start_date,end_date])
     let jhu_data = []
     let start_date_index = global_data_dates.indexOf(start_date)
     let end_date_index = global_data_dates.indexOf(end_date)
+    if (start_date_index==-1 || end_date_index==-1){
+        alert("Date Range Invalid")
+        return
+    }
     myChart.data.labels = []
     myChart.data.datasets[0].data = []
     myChart.data.datasets[1].data = []
@@ -96,6 +111,8 @@ function btn_fetch_data_OnClick(){
     {
         let percentage_c = Number(d_c[global_data_dates[i]]) / population
         let percentage_remove = (Number(d_r[global_data_dates[i]])+Number(d_d[global_data_dates[i]])) / population
+        console.log("confirmed",Number(d_c[global_data_dates[i]]))
+        console.log("removed",Number(d_r[global_data_dates[i]])+Number(d_d[global_data_dates[i]]))
         jhu_data.push([
             percentage_c,percentage_remove, 1-percentage_c-percentage_remove
         ])
@@ -106,8 +123,8 @@ function btn_fetch_data_OnClick(){
 
     }
     myChart.update();
-    param_list[0].params["fractionInfectedInitially"] = myChart.data.datasets[3].data[0]
-    param_list[0].params["fractionRemovedInitially"] = myChart.data.datasets[5].data[0]
+    param_list[0].params["fractionInfectedInitially"] = myChart.data.datasets[3].data[0] * 100
+    param_list[0].params["fractionRemovedInitially"] = myChart.data.datasets[5].data[0] * 100
     switchToKeyFrame(0,true)
     console.log(jhu_data)
 }
